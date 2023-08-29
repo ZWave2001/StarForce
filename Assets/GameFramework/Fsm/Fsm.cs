@@ -40,7 +40,7 @@ namespace GameFramework.Fsm
         /// 获取有限状态机持有者。
         /// </summary>
         public T Owner
-        {
+        { 
             get
             {
                 return m_Owner;
