@@ -45,7 +45,6 @@ namespace StarForce
             }
 
             SceneBackground.VisibleBoundary.gameObject.GetOrAddComponent<HideByBoundary>();
-            //Note Start From Here
             GameEntry.Entity.ShowMyAircraft(new MyAircraftData(GameEntry.Entity.GenerateSerialId(), 10000)
             {
                 Name = "My Aircraft",
