@@ -405,6 +405,7 @@ namespace GameFramework
         {
             try
             {
+                //Note 在介李开始解析数据啦
                 if (!m_DataProviderHelper.ReadData(m_Owner, dataAssetName, dataAsset, userData))
                 {
                     throw new GameFrameworkException(Utility.Text.Format("Load data failure in data provider helper, data asset name '{0}'.", dataAssetName));
