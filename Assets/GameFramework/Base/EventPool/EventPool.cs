@@ -175,6 +175,8 @@ namespace GameFramework
             }
 
             //Note: 为什么会出现m_CachedNodes.Count > 0的情况 以及 m_CachedNodes的作用
+            //m_CachedNodes.Count > 0的情况可能是HandleEvent还没跑完，但是开始Unsubscribe了，m_CachedNodes是用于存下一个需要执行的Handler，
+            //下面这些代码的作用是如果Unsubscrice的handler出现在m_CachedNodes中的话，将其从中去除
             if (m_CachedNodes.Count > 0)
             {
                 foreach (KeyValuePair<object, LinkedListNode<EventHandler<T>>> cachedNode in m_CachedNodes)
@@ -216,6 +218,7 @@ namespace GameFramework
         /// </summary>
         /// <param name="sender">事件源。</param>
         /// <param name="e">事件参数。</param>
+        //Note: 这里怎么确保事件是在下一帧分发的？
         public void Fire(object sender, T e)
         {
             if (e == null)

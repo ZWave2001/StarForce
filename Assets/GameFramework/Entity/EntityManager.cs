@@ -646,6 +646,8 @@ namespace GameFramework.Entity
             EntityInstanceObject entityInstanceObject = entityGroup.SpawnEntityInstanceObject(entityAssetName);
             if (entityInstanceObject == null)
             {
+                //Note: serialId 是干什么用的
+                //当实体在加载中却被隐藏时，m_EntitiesToReleaseOnLoad会添加serialId作为实体的标识符，用于在加载完成判断是否需要卸载实体
                 int serialId = ++m_Serial;
                 m_EntitiesBeingLoaded.Add(entityId, serialId);
                 m_ResourceManager.LoadAsset(entityAssetName, priority, m_LoadAssetCallbacks, ShowEntityInfo.Create(serialId, entityId, entityGroup, userData));
@@ -1169,6 +1171,7 @@ namespace GameFramework.Entity
                     throw new GameFrameworkException("Can not create entity in entity helper.");
                 }
 
+                //Note: 介李将entity添加进各种地方进行管理
                 EntityInfo entityInfo = EntityInfo.Create(entity);
                 m_EntityInfos.Add(entityId, entityInfo);
                 entityInfo.Status = EntityStatus.WillInit;

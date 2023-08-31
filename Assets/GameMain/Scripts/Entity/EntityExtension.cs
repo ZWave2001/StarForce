@@ -13,6 +13,7 @@ namespace StarForce
 {
     public static class EntityExtension
     {
+        //Note:
         // 关于 EntityId 的约定：
         // 0 为无效
         // 正值用于和服务器通信的实体（如玩家角色、NPC、怪等，服务器只产生正值）
