@@ -15,6 +15,7 @@ namespace UnityGameFramework.Editor
     internal sealed class SettingComponentInspector : GameFrameworkInspector
     {
         private HelperInfo<SettingHelperBase> m_SettingHelperInfo = new HelperInfo<SettingHelperBase>("Setting");
+        
 
         public override void OnInspectorGUI()
         {
